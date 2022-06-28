@@ -13,14 +13,11 @@ if (!commitRE.test(msg)) {
       具体校验逻辑看 scripts/verifyCommit.js
     `)
     process.exit(1)
-  } else {
-    if (msg.length < 10) {
-      console.log('git commit：信息校验不通过')
-      console.error(`git commit：描述不能少于10个字符`)
-      process.exit(1)
-    }
   }
-
+} else if (msg.length < 10) {
+  console.log('git commit：信息校验不通过')
+  console.error(`git commit：描述不能少于10个字符`)
+  process.exit(1)
 } else {
-  console.log('git commit信息校验通过')
+  console.log('git commit：信息校验通过')
 }
